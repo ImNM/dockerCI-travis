@@ -6,13 +6,13 @@ const app = express();
 
 app.use(bodyParser.json());
 
-// db.pool.query(`CREATE TABLE list(
-//     id INTEGER AUTO INCREMENT,
-//     value TEXT,
-//     PRIMARY KEY(id)
-// )`,(err,results,fileds) =>{
-//     console.log('results',results)
-// })
+db.pool.query(`CREATE TABLE list(
+    id INTEGER AUTO INCREMENT,
+    value TEXT,
+    PRIMARY KEY(id)
+)`,(err,results,fileds) =>{
+    console.log('results',results)
+})
 
 app.get('/api/values',function(req,res){
     db.pool.query('SELECT *FROM lists',
