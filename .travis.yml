@@ -23,6 +23,7 @@ after_success:
   - docker push water0641/docker-nginx 
 
 deploy:
+  skip_cleanup: true
   provider: elasticbeanstalk
   region: "ap-northeast-2"
   app: "docker-fullstack-app"
