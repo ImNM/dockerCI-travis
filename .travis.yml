@@ -22,3 +22,14 @@ after_success:
   - docker push water0641/docker-backend 
   - docker push water0641/docker-nginx 
 
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "docker-fullstack-app"
+  env: "DockerfullstackApp-env"
+  bucket-name: elasticbeanstalk-ap-northeast-2-135487423365
+  bucket_path: "docker-fullstack-app"
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY

@@ -25,6 +25,7 @@ services:
         volumes: 
             - /app/node_modules
             - ./backend:/app
+       
 
     # mysql:
     #     build: ./mysql
