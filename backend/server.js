@@ -6,16 +6,18 @@ const app = express();
 
 app.use(bodyParser.json());
 
-db.pool.query(`CREATE TABLE lists(
-    id INTEGER AUTO INCREMENT,
+db.pool.query(`CREATE TABLE list(
+    id INTEGER AUTO_INCREMENT,
     value TEXT,
     PRIMARY KEY(id)
 )`,(err,results,fileds) =>{
+    console.log("errrr",err)
     console.log('results',results)
 })
 
+
 app.get('/api/values',function(req,res){
-    db.pool.query('SELECT *FROM lists',
+    db.pool.query('SELECT * FROM lists',
     (err,results,fileds)=>{
         if(err)
             return res.status(500).send(err);
@@ -37,6 +39,7 @@ app.post('/api/value',function(req,res,next){
 
     })
 })
+console.log("asdfasdfasdfasdf",process.env.MYSQL_HOST)
 
 app.listen(5000,()=>{
     console.log("실행 완료~");
